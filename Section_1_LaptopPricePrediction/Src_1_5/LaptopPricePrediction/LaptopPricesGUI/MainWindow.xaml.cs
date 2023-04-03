@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using LaptopPricePredictionML.Model;
+using System.Windows;
 
 namespace LaptopPricesGUI
 {
@@ -60,7 +61,22 @@ namespace LaptopPricesGUI
             bool isSSD, 
             double weight)
         {
-            return 0;
+            var input = new ModelInput()
+            {
+                CPU = CPU,
+                GHz = (float)GHz,
+                GPU = GPU,
+                RAMType = RAMType,
+                RAM = (float)RAMAmount,
+                Screen = (float)screenSize,
+                Storage = (float)storage,
+                SSD = isSSD,
+                Weight = (float)weight
+            };
+
+            var result = ConsumeModel.Predict(input);
+
+            return result.Score;
         }
     }
 }
