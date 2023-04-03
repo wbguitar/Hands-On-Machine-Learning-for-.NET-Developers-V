@@ -57,7 +57,7 @@ namespace LaptopPricePredictionML.ConsoleApp
         }
 
         // ReSharper disable once MemberCanBePrivate.Global
-        public static ITransformer TrainModel(IDataView trainingDataView, IEstimator<ITransformer> trainingPipeline)
+        public static ITransformer TrainModel(MLContext mlContext, IDataView trainingDataView, IEstimator<ITransformer> trainingPipeline)
         {
             Console.WriteLine("=============== Training  model ===============");
 
